@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/6645801ce1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div
+        class="wrapper flex justify-center lg:overflow-hidden overflow-y-scroll items-center h-[100vh] w-full bg-gradient-to-r from-Purple to-dPurple">
+        <div class="base">
+            <!-- heading (app name) -->
+            <div class="heading flex justify-center items-center">
+                <h2 class="text-4xl font-poppins font-bold mt-10">Weather</h2>
+            </div>
+
+            <!-- navbar -->
+            <div class="menubar flex justify-center items-center">
+                <nav>
+                    <div class="optionContainer flex justify-between w-44 p-3 rounded-md bg-slate-900">
+                        <button data-userWeather class="bg-dPurple rounded-md w-[50%] mr-1">
+                            <i class="fa-solid fa-location-dot text-[2.5em] p-3 text-yellow-400"></i>
+                        </button>
+
+                        <button data-searchWeather class="bg-transparent  rounded-md w-[50%] ml-1">
+                            <i class="fa-solid fa-sun text-[2.5em] p-3 text-yellow-400"></i>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="mainapp p-3 m-3 flex flex-col justify-center items-center bg-slate-900 rounded-lg">
+
+                <!-- grant location container -->
+                <div class="grantLocationContainer flex-col justify-center items-center hidden ">
+                    <img src="imgs/locationimage.png" alt="Location" height="20" width="80" loading="lazy">
+                    <p class="font-poppins text-center text-white text-2xl my-3">Grant Location Access</p>
+                    <p class="text-center font-poppins text-Purple text-xl px-4">Please allow Location Access to get
+                        Weather Information</p>
+                    <button class="font-poppins bg-yellow-400 text-xl font-bold mt-5 mb-3 rounded-md px-3 py-2"
+                        data-grantAccess>Grant
+                        Access</button>
+                </div>
+
+                <!-- searchbar -->
+                <form class="searchbar relative hidden" data-searchForm netlify>
+                    <input type="text" placeholder="Search City..."
+                        class="w-60 text-2xl border-none outline-none font-poppins m-3 px-3 py-2 bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] placeholder-slate-900 rounded-md"
+                        data-searchInput>
+                    <button type="submit" class="absolute right-2 top-4 flex justify-center items-center">
+                        <i
+                            class="fa-solid fa-magnifying-glass text-2xl font-bold text-yellow-400 bg-slate-900 p-2 mr-2 rounded-md "></i>
+                    </button>
+                </form>
+
+                <!-- loading screen -->
+                <div class="loadingcontainer flex-col justify-center items-center hidden">
+                    <img src="imgs/loadingfox.gif" alt="Loading" width="200" class="rounded-full" loadingimage>
+                    <p class="font-poppins text-2xl mt-3 text-yellow-400" loadingtext>Loading...</p>
+                </div>
+
+                <div class="userInfoContainer flex-col justify-center items-center hidden ">
+                    <!-- <div
+                        class="misccontainer m-3 px-5 py-2 bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] rounded-lg flex flex-col items-center"> -->
+
+                    <!-- city name and country flag -->
+                    <div class="cityNameandCountryFlag flex items-center gap-2 ">
+                        <p data-cityName class="font-poppins text-4xl text-yellow-400"></p>
+                        <img data-countryIcon class="h-6">
+                    </div>
+
+                    <!-- weather description -->
+                    <p class="weatherDesc font-poppins text-lg text-yellow-400 capitalize " data-weatherDesc></p>
+
+                    <!-- weather icon -->
+                    <img data-weatherIcon class="h-14 w-14 ">
+
+                    <!-- temp -->
+                    <p data-weatherTemp class="font-poppins text-5xl text-yellow-400"></p>
+                    <!-- </div> -->
+
+                    <!-- cards -->
+                    <div class="cards flex flex-col lg:flex-row" cards>
+                        <div
+                            class="parameter flex flex-col justify-center items-center bg-yellow-400 my-3 mx-3 px-3 rounded-md w-56 ">
+                            <img src="imgs/wind.png" alt="" width="60">
+                            <p class="font-poppins text-xl text-slate-900 font-bold">Wind Speed</p>
+                            <p data-windspeed class="font-poppins text-3xl text-slate-900 font-bold my-3"></p>
+                        </div>
+                        <div
+                            class="parameter flex flex-col justify-center items-center bg-yellow-400 my-3 mx-3 px-3 rounded-md w-56 ">
+                            <img src="imgs/humidity.png" alt="" width="60">
+                            <p class="font-poppins text-xl text-slate-900 font-bold">Humidity</p>
+                            <p data-humidity class="font-poppins text-3xl text-slate-900 font-bold my-3"></p>
+                        </div>
+                        <div
+                            class="parameter flex flex-col justify-center items-center bg-yellow-400 my-3 mx-3 px-3 rounded-md w-56 ">
+                            <img src="imgs/cloudy.png" alt="" width="60">
+                            <p class="font-poppins text-xl text-slate-900 font-bold">Clouds</p>
+                            <p data-cloudiness class="font-poppins text-3xl text-slate-900 font-bold my-3"></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
